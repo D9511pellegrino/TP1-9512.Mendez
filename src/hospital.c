@@ -44,21 +44,21 @@ bool hospital_leer_archivo(hospital_t* hospital, const char* nombre_archivo){
     char* linea_leida = NULL;
     char* linea_aux = NULL;
 
-    size_t inicio = 0;
-    size_t final = 0;
-    size_t incremento = 60;
+    int inicio = 0;
+    int final = 0;
+    int incremento = 60;
 
     while((linea_aux = realloc(linea_leida, final+incremento))){
         linea_leida = linea_aux;
         final += incremento;
         linea_aux[final-1] = 1;
 
-        if(!fgets(linea_aux+inicio, final-inico, archivo_hospital)){
+        if(!fgets(linea_aux+inicio, final-inicio, archivo_hospital)){
             free(linea_leida);
             return NULL;
         }
 
-        if(linea_aux[final-1] != 0 || (au))
+        //if(linea_aux[final-1] != 0 || (aux))
     }
 
     /*size_t bytes_leidos = 0;
@@ -94,7 +94,7 @@ size_t hospital_cantidad_entrenadores(hospital_t* hospital){
 size_t hospital_a_cada_pokemon(hospital_t* hospital, bool (*funcion)(pokemon_t* p)){
     if(!hospital || !funcion) return 0;
 
-    pokemon_t* vector_pokemon_alfabetico = ordenar_pokemon_alfabetico(&(hospital->vector_pokemones), 0, hospital->cantidad_pokemon);
+    /*pokemon_t* vector_pokemon_alfabetico =*/ ordenar_pokemon_alfabetico(&(hospital->vector_pokemones), hospital->cantidad_pokemon);
     size_t i = 0;
 
     while(funcion(vector_pokemon_alfabetico[i])) i++;

@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "hospital.h"
 #include "ordenamiento.h"
 
 
-void merge_pokemon_array(pokemon_t** p, size_t min, size_t mid, size_t max){
+/*void merge_pokemon_array(pokemon_t** p, size_t min, size_t mid, size_t max){
 	//index_1 es el indice del 1er subarray, index_2 del 2do, index_merged del resultante del merge
 	size_t index_1, index_2, index_merged;
 	size_t tamano_temporal_1 = mid - min + 1;
@@ -32,16 +33,30 @@ void merge_pokemon_array(pokemon_t** p, size_t min, size_t mid, size_t max){
 
 
 
+}*/
+
+
+void swap(pokemon_t* p1, pokemon_t* p2){
+	if(!p1 || !p2) return;
+
+	pokemon_t* temporal = p1;
+	*p1 = *p2;
+	*p2 = temporal; 
 }
 
-void ordenar_pokemon_alfabetico(pokemon_t* p, size_t min, size_t max){
-	if(!p) return NULL;
+void ordenar_pokemon_alfabetico(pokemon_t** p, size_t cantidad_pokemon){
+	if(!p) return;
 
-	size_t mid = (max - min) / 2;
+	//size_t mid = (max - min) / 2;
 
-	ordenar_pokemon_alfabetico(p, min, mid);
-	ordenar_pokemon_alfabetico(p, mid+1, max);
+	//ordenar_pokemon_alfabetico(p, min, mid);
+	//ordenar_pokemon_alfabetico(p, mid+1, max);
 
-
-
+	for(size_t i = 0; i < cantidad_pokemon; i++){
+		for(size_t j = 0; j < cantidad_pokemon - i - 1; j++){
+			if(strcmp(*p[j]->name, *p[j + 1]->name) > 0)
+				swap(*p[j], *p[j + 1]);
+		}
+	}
+	return;
 }
