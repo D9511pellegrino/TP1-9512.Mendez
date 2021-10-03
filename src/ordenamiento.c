@@ -40,11 +40,11 @@ void swap(pokemon_t* p1, pokemon_t* p2){
 	if(!p1 || !p2) return;
 
 	pokemon_t* temporal = p1;
-	*p1 = *p2;
-	*p2 = temporal; 
+	p1 = p2;
+	p2 = temporal; 
 }
 
-void ordenar_pokemon_alfabetico(pokemon_t** p, size_t cantidad_pokemon){
+/*void ordenar_pokemon_alfabetico(pokemon_t* p, size_t cantidad_pokemon){
 	if(!p) return;
 
 	//size_t mid = (max - min) / 2;
@@ -54,9 +54,9 @@ void ordenar_pokemon_alfabetico(pokemon_t** p, size_t cantidad_pokemon){
 
 	for(size_t i = 0; i < cantidad_pokemon; i++){
 		for(size_t j = 0; j < cantidad_pokemon - i - 1; j++){
-			if(strcmp(*p[j]->name, *p[j + 1]->name) > 0)
-				swap(*p[j], *p[j + 1]);
+			if(strcmp(p[j]->name, p[j + 1]->name) > 0)
+				swap(p[j], p[j + 1]);
 		}
 	}
 	return;
-}
+}*/

@@ -8,6 +8,6 @@
 
 /* La función recibe un vector de pokemones y su posicion minima y maxima. Los ordena mediante merge alfabeticamente de la a a la z.
 Devuelve el vector ordenado, en caso de falla devuelve NULL.*/
-void ordenar_pokemon_alfabetico(pokemon_t** p, size_t cantidad_pokemon);
+void ordenar_pokemon_alfabetico(pokemon_t* p, size_t cantidad_pokemon);
 
 #endif // ORDENAMIENTO_H_

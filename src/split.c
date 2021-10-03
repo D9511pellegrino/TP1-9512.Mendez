@@ -1,4 +1,4 @@
-#include "split.h"
+ #include "split.h"
 
 /*Recibe un string y un char separador. Cuenta las pociciones hasta el primer separador y devuelde la misma.
     Si el string apunta a NULL retorna 0.*/
