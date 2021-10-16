@@ -146,13 +146,15 @@ size_t hospital_cantidad_entrenadores(hospital_t* hospital){
     return hospital->cantidad_entrenador;
 }
 
-/*La función swap recibe dos punteros a pokemon y los intercambia*/
+/*La función swap recibe dos punteros a pokemon y los intercambia mediante memcpy*/
 void swap(pokemon_t* p1, pokemon_t* p2){
     if(!p1 || !p2) return;
 
-    pokemon_t temporal = *p1;
-    *p1 = *p2;
-    *p2 = temporal; 
+    pokemon_t temporal;
+
+    memcpy(&temporal, p1, sizeof(pokemon_t));
+    memcpy(p1, p2, sizeof(pokemon_t));
+    memcpy(p2, &temporal, sizeof(pokemon_t)); 
 }
 
 
@@ -161,17 +163,19 @@ void swap(pokemon_t* p1, pokemon_t* p2){
 void ordenar_pokemon_alfabetico(pokemon_t* p, size_t cantidad_pokemon){
     if(!p || cantidad_pokemon == 0) return;
 
-    bool ordenado = false;
+    bool ordenado= false;
 
-    for(size_t i = 0; i < cantidad_pokemon && !ordenado; i++){
+    while (!ordenado){
         ordenado = true;
-        for(size_t j = 0; j < cantidad_pokemon - i - 1; j++){
-            if(strcmp(p[j].nombre, p[j + 1].nombre) > 0){
-                swap(&(p[j]), &(p[j + 1]));
+        for (size_t i = 0; i < cantidad_pokemon-1; i++) {
+            if (strcmp(p[i].nombre, p[i + 1].nombre) > 0) {
+                swap (&p[i], &p [i + 1]);
                 ordenado = false;
             }
         }
-    }
+        cantidad_pokemon--;
+    } 
+
     return;
 }
 
@@ -183,8 +187,14 @@ size_t hospital_a_cada_pokemon(hospital_t* hospital, bool (*funcion)(pokemon_t* 
     ordenar_pokemon_alfabetico(hospital->vector_pokemones, hospital->cantidad_pokemon);
     size_t i = 0;
 
-    while(funcion(hospital->vector_pokemones) && i<hospital->cantidad_pokemon) i++;
-    return i+1;
+    while(i<hospital->cantidad_pokemon){
+        if(funcion(hospital->vector_pokemones+i)) i++;
+        else if(!funcion(hospital->vector_pokemones+i)){
+            i++;
+            return i;
+        }
+    }
+    return i;
 }
 
 

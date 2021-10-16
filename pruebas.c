@@ -122,11 +122,11 @@ void dadoUnArchivoConVariosEntrenadores_SeAgreganLosEntrenadoresYSusPokemonAlHos
     pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon)==24, "Recorrer los pokemon resulta en 24 pokemon recorridos");
     pa2m_afirmar(acumulados_en_orden_correcto(), "Los pokemon se recorrieron en orden alfabetico");
     resetear_acumulados();
-    pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon_hasta_miltank)==4, "Recorrer los pokemon hasta milktank son 4 pokemon recorridos");
+    pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon_hasta_miltank)==14, "Recorrer los pokemon hasta milktank son 14 pokemon recorridos");
     resetear_acumulados();
-    pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon_hasta_miltank)==3, "Recorrer los pokemon hasta milktank son 3 pokemon recorridos");
+    pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon_hasta_miltank)==13, "Recorrer los pokemon hasta milktank son 13 pokemon recorridos");
     resetear_acumulados();
-    pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon_hasta_miltank)==5, "Recorrer los pokemon hasta milktank son 5 pokemon recorridos");
+    pa2m_afirmar(hospital_a_cada_pokemon(h, acumular_pokemon_hasta_miltank)==15, "Recorrer los pokemon hasta milktank son 15 pokemon recorridos");
     resetear_acumulados();
     pa2m_afirmar(hospital_a_cada_pokemon(h, mostrar_pokemon)==24, "Muestra pokemon recorridos");
     hospital_destruir(h);
