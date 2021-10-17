@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 /**
  * Recibe un string y un separador y devuelve un vector dinámico que contenga
