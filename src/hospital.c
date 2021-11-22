@@ -194,6 +194,11 @@ size_t hospital_a_cada_pokemon(hospital_t* hospital, bool (*funcion)(pokemon_t* 
         }
     }
     return contador;
+    //OTRA IMPLEMENTACION
+    /*while ((seguir_aplicando) && (cant_aplicaciones < (*hospital).cantidad_pokemon)){
+    seguir_aplicando = funcion(&(*hospital).vector_pokemones[cant_aplicaciones]);
+    cant_aplicaciones++;    
+    }*/
 }
 
 
