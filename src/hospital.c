@@ -184,7 +184,7 @@ size_t hospital_a_cada_pokemon(hospital_t* hospital, bool (*funcion)(pokemon_t* 
     if(!hospital || !funcion) return 0;
 
     ordenar_pokemon_alfabetico(hospital->vector_pokemones, hospital->cantidad_pokemon);
-    size_t contador = 0;
+    /*size_t contador = 0;
 
     while(contador<hospital->cantidad_pokemon){
         if(funcion(hospital->vector_pokemones+contador)) contador++;
@@ -193,12 +193,15 @@ size_t hospital_a_cada_pokemon(hospital_t* hospital, bool (*funcion)(pokemon_t* 
             return contador;
         }
     }
-    return contador;
+    return contador;*/
     //OTRA IMPLEMENTACION
-    /*while ((seguir_aplicando) && (cant_aplicaciones < (*hospital).cantidad_pokemon)){
+    size_t cant_aplicaciones = 0;
+    bool seguir_aplicando = true;
+    while ((seguir_aplicando) && (cant_aplicaciones < (*hospital).cantidad_pokemon)){
     seguir_aplicando = funcion(&(*hospital).vector_pokemones[cant_aplicaciones]);
     cant_aplicaciones++;    
-    }*/
+    }
+    return cant_aplicaciones;
 }
 
 
